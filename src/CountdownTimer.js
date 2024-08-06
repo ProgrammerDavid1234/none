@@ -35,7 +35,7 @@ const CountdownTimer = ({ targetDate }) => {
 
   return (
     <div className="countdown-timer">
-      <h1>Countdown to Our Anniversary</h1>
+      <h1>Countdown to Our 5 Month Anniversary</h1>
       {hasElapsed ? (
         <div className="love-message">
           <h2>Happy Anniversary!</h2>
