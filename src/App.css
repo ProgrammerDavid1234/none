@@ -7,10 +7,10 @@
   width: 100vw;
   background-image: url(./ours.jpg);
   background-repeat: no-repeat;
-  background-size: cover; /* Cover the entire screen */
-  background-position: center; /* Center the image */
+  background-size: cover;
+  background-position: center;
   font-family: Arial, sans-serif;
-  position: relative; /* Needed for absolute positioning inside */
+  position: relative;
 }
 
 .countdown-timer {
@@ -19,7 +19,7 @@
   padding: 30px; /* Increased padding for spacious feel */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: absolute; /* Position the timer absolutely */
+  position: absolute;
   top: 10%; /* Adjust this value to move the timer up */
   left: 50%;
   transform: translate(-50%, 0); /* Center horizontally */
@@ -33,7 +33,7 @@
 
 .time {
   display: flex;
-  justify-content: space-between; /* Add space between units */
+  justify-content: space-between;
   gap: 20px; /* Add gap between the units */
 }
 
@@ -59,6 +59,22 @@
   to {
     opacity: 1;
   }
+}
+
+.love-message {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.love-message h2 {
+  color: #007bff;
+}
+
+.love-message p {
+  font-size: 1.2em;
+  color: #333;
 }
 
 /* Responsive styles for mobile devices */

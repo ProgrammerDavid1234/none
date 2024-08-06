@@ -1,12 +1,17 @@
-// CountdownTimer.js
 import React, { useState, useEffect } from 'react';
 
 const CountdownTimer = ({ targetDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [hasElapsed, setHasElapsed] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const time = calculateTimeLeft();
+      setTimeLeft(time);
+      if (Object.keys(time).length === 0) {
+        setHasElapsed(true);
+        clearInterval(timer);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
@@ -31,12 +36,19 @@ const CountdownTimer = ({ targetDate }) => {
   return (
     <div className="countdown-timer">
       <h1>Countdown to Our Anniversary</h1>
-      <div className="time">
-        <div className="unit">{timeLeft.days} <span>Days</span></div>
-        <div className="unit">{timeLeft.hours} <span>Hours</span></div>
-        <div className="unit">{timeLeft.minutes} <span>Minutes</span></div>
-        <div className="unit">{timeLeft.seconds} <span>Seconds</span></div>
-      </div>
+      {hasElapsed ? (
+        <div className="love-message">
+          <h2>Happy Anniversary!</h2>
+          <p>Every moment with you is a treasure. I love you more with each passing day!</p>
+        </div>
+      ) : (
+        <div className="time">
+          <div className="unit">{timeLeft.days || 0} <span>Days</span></div>
+          <div className="unit">{timeLeft.hours || 0} <span>Hours</span></div>
+          <div className="unit">{timeLeft.minutes || 0} <span>Minutes</span></div>
+          <div className="unit">{timeLeft.seconds || 0} <span>Seconds</span></div>
+        </div>
+      )}
     </div>
   );
 };
