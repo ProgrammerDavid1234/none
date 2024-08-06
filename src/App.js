@@ -1,25 +1,17 @@
-import logo from './logo.svg';
+// App.js
+import React from 'react';
+import CountdownTimer from './CountdownTimer';
 import './App.css';
 
-function App() {
+const App = () => {
+  // Set the anniversary date and time to 3 hours and 17 minutes from now
+  const anniversaryDate = new Date(new Date().getTime() + (3 * 60 * 60 * 1000) + (17 * 60 * 1000)).toISOString();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CountdownTimer targetDate={anniversaryDate} />
     </div>
   );
-}
+};
 
 export default App;

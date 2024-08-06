@@ -1,38 +1,80 @@
+/* App.css */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./ours.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; /* Cover the entire screen */
+  background-position: center; /* Center the image */
+  font-family: Arial, sans-serif;
+  position: relative; /* Needed for absolute positioning inside */
 }
 
-.App-link {
-  color: #61dafb;
+.countdown-timer {
+  text-align: center;
+  background: #fff;
+  padding: 30px; /* Increased padding for spacious feel */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute; /* Position the timer absolutely */
+  top: 10%; /* Adjust this value to move the timer up */
+  left: 50%;
+  transform: translate(-50%, 0); /* Center horizontally */
+  max-width: 90%; /* Ensure it fits within the viewport */
 }
 
-@keyframes App-logo-spin {
+.countdown-timer h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between; /* Add space between units */
+  gap: 20px; /* Add gap between the units */
+}
+
+.unit {
+  font-size: 2em;
+  background: #007bff;
+  color: #fff;
+  padding: 15px; /* Increased padding for a spacious look */
+  border-radius: 5px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.unit span {
+  display: block;
+  font-size: 0.5em;
+  color: #ddd;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .countdown-timer {
+    top: 5%; /* Adjust vertical position for smaller screens */
+    padding: 20px; /* Adjust padding for smaller screens */
+    max-width: 95%; /* Ensure it fits within smaller viewports */
+  }
+
+  .unit {
+    font-size: 1.5em; /* Adjust font size for smaller screens */
+    padding: 12px; /* Adjust padding for smaller screens */
+  }
+
+  .time {
+    gap: 10px; /* Adjust gap for smaller screens */
   }
 }
